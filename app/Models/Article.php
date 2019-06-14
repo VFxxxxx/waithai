@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Scopes\LocaleScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
     protected $fillable = [
       'title',
-      'slug',
+      'image',
       'text',
       'path',
       'position',
@@ -20,4 +21,11 @@ class Article extends Model
       'video_link',
       'locale',
     ];
+
+    protected  static  function  boot()
+    {
+        parent::boot();
+        static::addGlobalScope(new LocaleScope());
+    }
+
 }

@@ -82,6 +82,8 @@ return [
 
     'locale' => 'ru',
 
+    'locales' => ['ru', 'en', 'uk'],
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -162,6 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -226,6 +230,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 

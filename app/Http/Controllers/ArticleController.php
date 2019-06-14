@@ -22,8 +22,17 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $data = $this->articleService->getOutData();
-        return view('panel.article.index', $data);
+        $with = [
+            'title'             => __('article.index.title'),
+            'new_title'         => __('article.index.new_title'),
+            'list'              => __('article.index.list'),
+            'method_create'     => route('articles.create'),
+            'method_destroy'    => 'ArticleController@destroy',
+            'method_edit'       => 'ArticleController@edit',
+            'table_columns'     => $this->articleService->getTableColumns(),
+            'data'              => $this->articleService->getOutData(),
+        ];
+        return view('panel.templates.index')->with($with);
     }
 
     /**
@@ -33,8 +42,12 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $data = $this->articleService->getCategories();
-        return view('panel.article.create', $data);
+        $with = [
+            'title'             => __('article.create.title'),
+            'method_store'      => route('articles.store'),
+            'fields'            => $this->articleService->fields(),
+        ];
+        return view('panel.templates.create')->with($with);
     }
 
     /**
@@ -45,6 +58,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $this->articleService->store($request);
     }
 

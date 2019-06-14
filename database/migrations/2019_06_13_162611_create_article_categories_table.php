@@ -16,7 +16,6 @@ class CreateArticleCategoriesTable extends Migration
         Schema::create('article_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title')->nullable();
-            $table->string('slug')->nullable();
             $table->string('text')->nullable();
             $table->string('position')->nullable();
             $table->string('visible')->nullable();
@@ -32,6 +31,6 @@ class CreateArticleCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_categories');
+        Schema::dropIfExists('article_categories')->onDelete('cascade');
     }
 }

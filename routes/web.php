@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('setlocale/{locale}', 'LocaleController@setLocale');
+
 // Authentication Routes...
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -30,6 +32,11 @@ Route::prefix('admin')->group(function () {
         Route::resource('/article_categories', 'ArticleCategoryController');
 
 
+        Route::get('stock', function (){
+
+
+            dd(Session::get('locale'));
+        });
 
 
     });

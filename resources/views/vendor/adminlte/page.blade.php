@@ -55,8 +55,14 @@
             @endif
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
-
                     <ul class="nav navbar-nav">
+                        <li style="width: 125px;position: relative;top: 10px;">
+                            <div class="flags" style="height: 25px;display: flex;justify-content: space-around;">
+                                <a href="/setlocale/ru"><img style="width: 30px;" src="{{ asset('assets/flags/russia.svg') }}" alt=""></a>
+                                <a href="/setlocale/uk"><img style="width: 30px;" src="{{ asset('assets/flags/ukraine.svg') }}" alt=""></a>
+                                <a href="/setlocale/en"><img style="width: 30px;" src="{{ asset('assets/flags/united-kingdom.svg') }}" alt=""></a>
+                            </div>
+                        </li>
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
@@ -134,4 +140,9 @@
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     @stack('js')
     @yield('js')
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+    <script>
+        $('textarea').ckeditor();
+    </script>
 @stop

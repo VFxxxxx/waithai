@@ -21,8 +21,17 @@ class ArticleCategoryController extends Controller
 
     public function index()
     {
-        $data = $this->articleCategoryService->getOutData();
-        return view('panel.article_category.index', $data);
+        $with = [
+            'title'             => __('article.categories.index.title'),
+            'new_title'         => __('article.categories.index.new_title'),
+            'list'              => __('article.categories.index.list'),
+            'method_create'     => route('article_categories.create'),
+            'method_destroy'    => 'ArticleCategoryController@destroy',
+            'method_edit'       => 'ArticleCategoryController@edit',
+            'table_columns'     => $this->articleCategoryService->getTableColumns(),
+            'data'              => $this->articleCategoryService->getOutData(),
+        ];
+        return view('panel.templates.index')->with($with);
     }
 
     /**
@@ -32,7 +41,12 @@ class ArticleCategoryController extends Controller
      */
     public function create()
     {
-        return view('panel.article_category.create');
+        $with = [
+            'title'             => __('article.categories.create.title'),
+            'method_store'      => route('article_categories.store'),
+            'fields'            => $this->articleCategoryService->fields(),
+        ];
+        return view('panel.templates.create')->with($with);
     }
 
     /**
@@ -44,6 +58,7 @@ class ArticleCategoryController extends Controller
     public function store(Request $request)
     {
         $this->articleCategoryService->store($request);
+        return redirect('/admin/article_categories');
     }
 
     /**
@@ -88,6 +103,7 @@ class ArticleCategoryController extends Controller
      */
     public function destroy(ArticleCategory $articleCategory)
     {
-        //
+        $articleCategory->delete();
+        return redirect()->back();
     }
 }
