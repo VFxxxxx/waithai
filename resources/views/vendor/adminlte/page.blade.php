@@ -61,7 +61,7 @@
                                 <a href="<?= route('setlocale', ['lang' => 'ru']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'ru' ? 'class="active"' : '' ?>>
                                     <img style="width: 30px;" src="{{ asset('assets/flags/russia.svg') }}" alt="">
                                 </a>
-                                <a href="<?= route('setlocale', ['lang' => 'uk']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'uk' ? 'class="active"' : '' ?>>
+                                <a href="<?= route('setlocale', ['lang' => 'ua']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'ua' ? 'class="active"' : '' ?>>
                                     <img style="width: 30px;" src="{{ asset('assets/flags/ukraine.svg') }}" alt="">
                                 </a>
                                 <a href="<?= route('setlocale', ['lang' => 'en']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'en' ? 'class="active"' : '' ?>>

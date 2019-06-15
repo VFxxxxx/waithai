@@ -18,9 +18,9 @@ class LangFilter implements FilterInterface
 
     public function transform($item, Builder $builder)
     {
-        if (isset($item['text'])) {
+/*        if (isset($item['text'])) {
             $item['text'] = $this->langGenerator->trans($item['text']);
-        }
+        }*/
 
         if (isset($item['url'])) {
             $item['url'] = route($item['url']);

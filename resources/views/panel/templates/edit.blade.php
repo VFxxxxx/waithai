@@ -36,6 +36,27 @@
                             </div>
                         @endif
 
+                        @if(in_array('text_preview', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.text_preview') }}</label>
+                                <textarea name="text_preview" rows="10" class="form-control" required>{{ $data->text_preview }}</textarea>
+                            </div>
+                        @endif
+
+                        @if(in_array('text_detail', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.text_detail') }}</label>
+                                <textarea name="text_detail" rows="10" class="form-control" required>{{ $data->text_detail }}</textarea>
+                            </div>
+                        @endif
+
+                        @if(in_array('price', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.price') }}</label>
+                                <input name="price" type="text" class="form-control" placeholder="{{ __('fields.price') }}" value="{{ $data->price }}" required>
+                            </div>
+                        @endif
+
                         @if(isset($fields['category_id']))
                             <div class="form-group">
                                 <label>{{ __('fields.category_id') }}</label>
@@ -56,6 +77,32 @@
                             <div class="form-group">
                                 @if(isset($data->image))
                                     <img src="{{ Storage::url($data->image) }}">
+                                @endif
+                            </div>
+                        @endif
+
+                        @if(in_array('image_preview', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.image_preview') }}</label>
+                                <input type="file" class="form-control" name="image_preview"/>
+                            </div>
+
+                            <div class="form-group">
+                                @if(isset($data->image_preview))
+                                    <img src="{{ Storage::url($data->image_preview) }}">
+                                @endif
+                            </div>
+                        @endif
+
+                        @if(in_array('image_detail', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.image_detail') }}</label>
+                                <input type="file" class="form-control" name="image_detail"/>
+                            </div>
+
+                            <div class="form-group">
+                                @if(isset($data->image_detail))
+                                    <img src="{{ Storage::url($data->image_detail) }}">
                                 @endif
                             </div>
                         @endif

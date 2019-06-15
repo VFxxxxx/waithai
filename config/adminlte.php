@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Wait</b>hai',
+    'logo' => '<b>Wai</b>Thai',
 
-    'logo_mini' => '<b>W</b>H',
+    'logo_mini' => '<b>W</b>T',
 
     /*
     |--------------------------------------------------------------------------
@@ -109,12 +109,30 @@ return [
 
     'menu' => [
         [
-            'text'    => 'menu.filling',
+            'text'    => 'Наполнение',
             'icon'    => 'folder',
             'submenu' => [
+//                ['text' => 'заказы', 'url'  => '/admin/orders',],
+                ['text' => 'категории массажа', 'url'  => 'massage_categories.index',],
+                ['text' => 'массажи', 'url'  => 'massages.index',],
+                ['text' => 'подарочные сертификаты', 'url'  => 'gifts.index',],
+//                ['text' => 'статьи', 'url'  => '/admin/articles',],
+//                ['text' => 'категории статей', 'url'  => '/admin/article_categories',],
+//                ['text' => 'акции', 'url'  => '/admin/stock',],
+//                ['text' => 'привилегии', 'url'  => '/admin/privilege',],
+//                ['text' => 'партнеры', 'url'  => '/admin/partners',],
+//                ['text' => 'мастера', 'url'  => '/admin/masters',],
+//                ['text' => 'отзывы', 'url'  => '/admin/reviews',],
+//                ['text' => 'слайдер', 'url'  => '/admin/slider',],
+//                ['text' => 'страницы', 'url'  => '/admin/pages',],
+//                ['text' => 'города', 'url'  => '/admin/cities',],
+//                ['text' => 'салоны', 'url'  => '/admin/salons',],
+//                ['text' => 'цены', 'url'  => '/admin/prices',],
+
+
 //                ['text' => 'menu.orders', 'url'              => 'admin.orders',],
-                ['text' => 'menu.massage_categories', 'url'  => 'massage_categories.index',],
-                ['text' => 'menu.massages',           'url'  => 'massages.index',],
+//                ['text' => 'menu.massage_categories', 'url'  => 'massage_categories.index',],
+//                ['text' => 'menu.massages',           'url'  => 'massages.index',],
 //                ['text' => 'menu.gift_certificates', 'url'   => '/admin/gift_certificates',],
 //                ['text' => 'menu.articles', 'url'            => '/admin/articles',],
 //                ['text' => 'menu.news', 'url'                => '/admin/news',],

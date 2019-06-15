@@ -84,9 +84,11 @@ class MassageController extends Controller
      */
     public function store(Request $request)
     {
-        $signatureImage = $request->file('image')->store('images', 'public');
         $massage = Massage::create($request->all());
-        $massage->update(['image' => $signatureImage]);
+        if ($request->file('image')) {
+            $signatureImage = $request->file('image')->store('images', 'public');
+            $massage->update(['image' => $signatureImage]);
+        }
         return redirect()->route('massages.index');
     }
 

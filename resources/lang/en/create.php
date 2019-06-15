@@ -2,9 +2,12 @@
 
 return [
     'massage_category'  =>  [
-        'title' =>  'New category',
+        'title' =>  'Новая категория',
     ],
     'massage'  =>  [
-        'title' =>  'New type of massage',
+        'title' =>  'Новый вид массажа',
+    ],
+    'gift'  =>  [
+        'title' =>  'Новый сертификат',
     ]
 ];

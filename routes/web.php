@@ -27,6 +27,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
         Route::group(['middleware' => ['auth']], function () {
             Route::resource('/massage_categories', 'MassageCategoryController');
             Route::resource('/massages', 'MassageController');
+            Route::resource('/gifts', 'GiftController');
 
 
 

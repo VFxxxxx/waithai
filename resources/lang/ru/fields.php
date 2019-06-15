@@ -19,4 +19,9 @@ return [
     'published_at'     => 'Дата публикации',
     'category_id'      => 'Категория',
     'update'           =>  'Обновить',
+    'text_preview'     =>  'Превью',
+    'text_detail'      =>  'Детальный текст',
+    'price'            =>  'Цена',
+    'image_preview'    =>  'Превью',
+    'image_detail'     =>  'Детальное изображение',
 ];
