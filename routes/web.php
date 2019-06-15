@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/home', 'HomeController@index');
+
 // Authentication Routes...
 Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -26,8 +29,6 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
             Route::resource('/massages', 'MassageController');
 
 
-
-            Route::resource('/articles', 'ArticleController');
 
 
         });
