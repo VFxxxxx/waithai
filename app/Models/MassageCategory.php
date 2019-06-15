@@ -5,13 +5,15 @@ namespace App\Models;
 use App\Scopes\LocaleScope;
 use Illuminate\Database\Eloquent\Model;
 
-class ArticleCategory extends Model
+class MassageCategory extends Model
 {
     protected $fillable = [
         'title',
+        'slug',
         'text',
-        'position',
-        'visible',
+        'meta_title',
+        'meta_keywords',
+        'meta_description',
         'locale'
     ];
 

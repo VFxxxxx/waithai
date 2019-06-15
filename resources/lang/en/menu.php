@@ -1,0 +1,20 @@
+<?php
+return [
+    'filling' => 'filling',
+    'orders' => 'orders',
+    'massages' => 'massages',
+    'massage_categories' => 'massage categories',
+    'gift_certificates' => 'gift certificates',
+    'articles' => 'articles',
+    'news' => 'news',
+    'stock' => 'stocks',
+    'privilege' => 'privileges',
+    'partners' => 'partners',
+    'masters' => 'masters',
+    'reviews' => 'reviews',
+    'slider' => 'slider',
+    'pages' => 'pages',
+    'cities' => 'cities',
+    'salons' => 'salons',
+    'prices' => 'prices',
+];

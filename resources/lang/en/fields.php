@@ -1,0 +1,21 @@
+<?php
+    return [
+        'title' => 'Title',
+        'text' => 'Description',
+        'position' => 'Sort',
+        'visible' => 'Visibility',
+        'visible_active' => 'Active',
+        'visible_disable' => 'Not active',
+        'locale' => '',
+        'slug' => 'CNC',
+        'meta_title' => 'Meta header',
+        'meta_keywords' => 'Keywords',
+        'meta_description' => 'Meta description of the page',
+        'video_link' => 'Link to video',
+        'image' => 'Image',
+        'action' => 'Actions',
+        'created_at' => 'Created',
+        'published_at' => 'Date of publication',
+        'category_id' => 'Category',
+        'update' => 'Refresh',
+];

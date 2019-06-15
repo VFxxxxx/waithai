@@ -58,9 +58,15 @@
                     <ul class="nav navbar-nav">
                         <li style="width: 125px;position: relative;top: 10px;">
                             <div class="flags" style="height: 25px;display: flex;justify-content: space-around;">
-                                <a href="/setlocale/ru"><img style="width: 30px;" src="{{ asset('assets/flags/russia.svg') }}" alt=""></a>
-                                <a href="/setlocale/uk"><img style="width: 30px;" src="{{ asset('assets/flags/ukraine.svg') }}" alt=""></a>
-                                <a href="/setlocale/en"><img style="width: 30px;" src="{{ asset('assets/flags/united-kingdom.svg') }}" alt=""></a>
+                                <a href="<?= route('setlocale', ['lang' => 'ru']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'ru' ? 'class="active"' : '' ?>>
+                                    <img style="width: 30px;" src="{{ asset('assets/flags/russia.svg') }}" alt="">
+                                </a>
+                                <a href="<?= route('setlocale', ['lang' => 'uk']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'uk' ? 'class="active"' : '' ?>>
+                                    <img style="width: 30px;" src="{{ asset('assets/flags/ukraine.svg') }}" alt="">
+                                </a>
+                                <a href="<?= route('setlocale', ['lang' => 'en']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'en' ? 'class="active"' : '' ?>>
+                                    <img style="width: 30px;" src="{{ asset('assets/flags/united-kingdom.svg') }}" alt="">
+                                </a>
                             </div>
                         </li>
                         <li>

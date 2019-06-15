@@ -1,0 +1,20 @@
+<?php
+return [
+    'filling'                  => 'наповнення',
+    'orders'                   => 'замовлення',
+    'massages'                 => 'масажі',
+    'massage_categories'       => 'категорії масажу',
+    'gift_certificates'        => 'подарункові сертифікати',
+    'articles'                 => 'статті',
+    'news'                     => 'новини',
+    'stock'                    => 'акції',
+    'privilege'                => 'привілеї',
+    'partners'                 => 'партнери',
+    'masters'                  => 'майстра',
+    'reviews'                  => 'відгуки',
+    'slider'                   => 'слайдер',
+    'pages'                    => 'сторінки',
+    'cities'                   => 'міста',
+    'salons'                   => 'салони',
+    'prices'                   => 'ціни',
+];

@@ -1,11 +1,12 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <span class="content-title">{{ $title }}</span>
-    <a href="{{ $method_create }}" class="btn btn-success btn-xs bottom_my">
-        <i class="fa fa-plus"></i>
-        {{ $new_title }}
-    </a>
+    <div class="new-block">
+        <a href="{{ $method_create }}" class="btn btn-success btn-xs bottom_my">
+            <i class="fa fa-plus"></i>
+            {{ $new_title }}
+        </a>
+    </div>
 @stop
 
 @section('content')
@@ -15,7 +16,7 @@
                 @include('flash::message')
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">{{ $list }}</h3>
+                        <h3 class="box-title">{{ $title }}</h3>
                     </div>
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
@@ -44,7 +45,11 @@
                                             </td>
                                         @else
                                             <td>
-                                                {{ $item[$column['data']] }}
+                                                @if(isset($item[$column['data']]->title))
+                                                    {{ $item[$column['data']]->title }}
+                                                @else
+                                                    {{ $item[$column['data']] }}
+                                                @endif
                                             </td>
                                         @endif
                                     @endforeach
