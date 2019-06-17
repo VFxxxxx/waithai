@@ -32,21 +32,21 @@
                         @if(in_array('text', $fields))
                             <div class="form-group">
                                 <label>{{ __('fields.text') }}</label>
-                                <textarea name="text" rows="10" class="form-control" required>{{ $data->text }}</textarea>
+                                <textarea name="text" rows="10" class="form-control" required>{!! $data->text !!}</textarea>
                             </div>
                         @endif
 
                         @if(in_array('text_preview', $fields))
                             <div class="form-group">
                                 <label>{{ __('fields.text_preview') }}</label>
-                                <textarea name="text_preview" rows="10" class="form-control" required>{{ $data->text_preview }}</textarea>
+                                <textarea name="text_preview" rows="10" class="form-control" required>{!! $data->text_preview !!}</textarea>
                             </div>
                         @endif
 
                         @if(in_array('text_detail', $fields))
                             <div class="form-group">
                                 <label>{{ __('fields.text_detail') }}</label>
-                                <textarea name="text_detail" rows="10" class="form-control" required>{{ $data->text_detail }}</textarea>
+                                <textarea name="text_detail" rows="10" class="form-control" required>{!! $data->text_detail !!}</textarea>
                             </div>
                         @endif
 
