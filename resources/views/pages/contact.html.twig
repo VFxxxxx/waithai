@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    {% if pageData.text is defined and pageData.text is not empty %}
+        <div class="page-text container">
+            {{ pageData.text|raw }}
+        </div>
+    {% endif %}
+
+    {% include 'components/salon_list.html.twig' %}
+
+    <div class="social text-center">
+        <div class="icons">
+            {% if social.instagram is not empty %}
+                <a href="{{ social.instagram }}" class="icon instagram" target="_blank"></a>
+            {% endif %}
+            {% if social.facebook is not empty %}
+                <a href="{{ social.facebook }}" class="icon facebook" target="_blank"></a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="content-block contact-block gray-block">
+        <div class="container">
+            <div class="contact-taxi">
+                <div class="icon"></div>
+                <div class="icon right"></div>
+                {{ 'contact.taxi'|trans|raw }}
+            </div>
+            <div class="block-title-red">{{ 'contact.partners.title'|trans }}</div>
+            {% include 'components/contact_for_partners_block.html.twig' %}
+
+            <div class="block-title-red">{{ 'contact.form.title'|trans }}</div>
+            <div class="contact-form-text">{{ 'contact.form.text'|trans|raw }}</div>
+            {{ form_start(form) }}
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.phone) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.email) }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        {{ form_widget(form.text) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(form.send) }}
+                    </div>
+                </div>
+            {{ form_end(form) }}
+            <div class="loader"><img src="{{ asset('images/loader.gif') }}"/> {{ 'contact.loader'|trans }}</div>
+        </div>
+    </div>
+{% endblock %}

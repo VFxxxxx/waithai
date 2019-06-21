@@ -48,7 +48,7 @@
                                                 @if(isset($item[$column['data']]->title))
                                                     {{ $item[$column['data']]->title }}
                                                 @else
-                                                    {{ $item[$column['data']] }}
+                                                    {!! $item[$column['data']] !!}
                                                 @endif
                                             </td>
                                         @endif

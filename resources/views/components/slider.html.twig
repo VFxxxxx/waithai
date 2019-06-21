@@ -1,0 +1,8 @@
+<div id="home_slider"><div class="slick-slider">
+{% for item in slider %}
+<div class="slick-slide active" style="background: url('{{ asset(item.webPath) }}') no-repeat center;"><div class="gradient_top"></div><div class="gradient_bottom"></div><div class="slider_title">
+{{ item.title|raw }}
+</div></div>
+{% endfor %}
+</div><button type="button" class="order_btn slider_order" data-toggle="modal" data-target="#order-form">{{ 'order.btn'|trans }}</button><div class="slider_links hidden-xs">
+<a href="{{ path(route, {'slug': 'location'}) }}">{{ 'our.salons'|trans }}<span class="underline"></span></a><a href="{{ path(routeSliderMassage, {'slug': 'pajamas'}) }}">{{ 'massages'|trans }}<span class="underline"></span></a><a href="{{ path(route, {'slug': 'gift-cards'}) }}">{{ 'gifts'|trans }}<span class="underline"></span></a></div></div>

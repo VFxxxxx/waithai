@@ -1,0 +1,38 @@
+{% set header_class = '' %}
+{% if pageData.template is not defined or pageData.template != 'home' %}
+{% set header_class = 'with-bg' %}
+{% endif %}
+<header class="{{ header_class }}"><div class="top-gradient"></div><div class="cloudy" data-stellar-ratio="2"></div><div class="container-fluid">
+<a href="{{ homeLink|default('/') }}" class="logo"><img src="{{ asset('images/logo.png') }}" alt="{{ 'company.short'|trans }}"></a>
+<button id="main-menu-btn" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-menu" aria-expanded="true"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><nav id="main-menu" class="navbar-collapse collapse">
+{% set menu = knp_menu_get('CravterCmsBundle:Builder:mainMenu', [], {'class': 'nav navbar-nav nav-menu', 'home': false, 'pointer': '<span class="underline"></span>'}) %}
+{{ knp_menu_render(menu, {'allow_safe_labels': true, 'depth': 2}) }}
+</nav><div class="right-block">
+{% if langs.list %}
+<div class="languages">
+{% for key, item in langs.list %}
+{% if item.link != '' %}
+<a class="item" href="{{ item.link }}">{{ item.title }}<span class="underline small"></span></a>
+{% else %}
+<a class="item active">{{ item.title }}<span class="underline small"></span></a>
+{% endif %}
+{% endfor %}
+</div>
+{% endif %}
+{% if cities %}
+<div class="phones">
+{{ cityCurrent.phone|replace({',':'<br>'})|raw }}
+</div><div class="city-btn-block"><span class="city-btn" data-toggle="modal" data-target="#city-change">
+{{ cityCurrent.title }}
+</span></div>
+{% endif %}
+<div class="order-btn-massage hidden-xs" data-toggle="modal" data-target="#order-form">
+{{ 'order.massage'|trans|raw }}
+</div></div>
+{% if pageData.template is defined and pageData.template != 'home' and pageData.h1Prepared is defined %}
+<div class="clearfix"></div><div class="title-block"><h1 class="page-title">{{ pageData.h1Prepared|default('') }}</h1>
+<div class="breadcrumbs">
+{{ breadcrumbs|join('<span class="sep">&gt;</span>')|raw }}
+</div></div>
+{% endif %}
+</div></header>

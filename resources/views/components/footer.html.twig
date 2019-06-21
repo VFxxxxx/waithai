@@ -1,0 +1,44 @@
+<footer><div class="container"><div class="row clearfix"><div class="col-sm-6 col-md-3 col-md-push-3 hidden-xs">
+<div class="foot-title">{{ 'footer.about'|trans }}</div>
+{% set menu = knp_menu_get('CravterCmsBundle:Builder:mainMenu', [], {'class': 'menu', 'levelDepth': 1, 'category': 6 }) %}
+{{ knp_menu_render(menu, {'depth': 1}) }}
+<div class="foot-title">{{ 'footer.massages'|trans }}</div>
+{% set menu = knp_menu_get('CravterCmsBundle:Builder:massageCategoryMenu', [], {'class': 'menu'}) %}
+{{ knp_menu_render(menu, {'depth': 1 }) }}
+</div><div class="col-sm-6 col-md-3 col-md-push-3 hidden-xs">
+<div class="foot-title">{{ 'footer.services'|trans }}</div>
+{% set menu = knp_menu_get('CravterCmsBundle:Builder:mainMenu', [], {'class': 'menu', 'levelDepth': 1, 'category': 7}) %}
+{{ knp_menu_render(menu, {'depth': 1}) }}
+<div class="foot-title">{{ 'footer.news'|trans }}</div>
+{% set menu = knp_menu_get('CravterCmsBundle:Builder:articleCategoryMenu', [], {'class': 'menu'}) %}
+{{ knp_menu_render(menu, {'depth': 1 }) }}
+</div><div class="visible-sm clearfix"></div><div class="col-sm-6 col-md-3 col-md-pull-6 hidden-xs"><div class="logo"><img src="{{ asset('images/logo_dark.png') }}" alt="{{ 'company.short'|trans }}"></div>
+{% set menu = knp_menu_get('CravterCmsBundle:Builder:mainMenu', [], {'class': 'menu', 'levelDepth': 1, 'home': false, 'closestChild': true}) %}
+{{ knp_menu_render(menu, {'depth': 1}) }}
+</div><div class="col-sm-6 col-md-3"><div class="wrap-social"><div class="social"><div class="icons text-left">
+{% if social.instagram is not empty %}
+<a href="{{ social.instagram }}" class="icon instagram" target="_blank"></a>
+{% endif %}
+<a class="icon trip-advisor"></a>
+{% if social.facebook is not empty %}
+<a href="{{ social.facebook }}" class="icon facebook" target="_blank"></a>
+{% endif %}
+</div>
+{% if salons.getSalons() %}
+<div class="trip-block"><div class="triangle"></div><div class="title">{{ 'trip.advisor.title'|trans }}</div>
+<ul class="adresses">
+{% for item in salons.getSalons() %}
+<li><a href="{{ item.tripadvisor }}" target="_blank">{{ (item.fullAdress)|raw }}</a></li>
+{% endfor %}
+</ul></div>
+{% endif %}
+</div></div></div></div><div class="bottom"><div class="separate_line"></div><div class="copyright">
+© 2013 - {{ 'now'|date('Y') }} {{ 'company.full'|trans|raw }}<br>{{ 'copyright'|trans }}
+</div><div class="powered">
+<a rel='nofollow' href="http://www.s-tet.com.ua/" target="_blank"
+{% if page is not defined or page.flag != 1 %}
+rel="nofollow"
+{% endif %}
+>{{ 'design.name'|trans }}</a>:
+{{ 'design.company'|trans }}
+</div></div></div></footer>

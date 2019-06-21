@@ -1,0 +1,101 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    {% if pageData.text is defined and pageData.text is not empty %}
+        <div class="page-text container">
+            {{ pageData.text|raw }}
+        </div>
+    {% endif %}
+
+    <div class="content-block gift-block gray-block">
+        <div class="container">
+            <div class="row">
+                {% set i = 1 %}
+                {% for item in objects %}
+                    <div class="col-sm-6 item-wrap">
+                        <div class="item">
+                            {% if app.request.getLocale() == 'uk' %}
+                                {% if item.path %}
+                                    <div class="image">
+                                        <img data-toggle="modal" data-target="#gift-modal-{{ item.id }}" src="{{ asset(item.webPath) }}" alt="{{ item.title }}" class="w100">
+                                    </div>
+                                {% endif %}
+                            {% elseif app.request.getLocale() == 'ru' %}
+                                {% if item.path3 %}
+                                    <div class="image">
+                                        <img data-toggle="modal" data-target="#gift-modal-{{ item.id }}" src="{{ asset(item.webPath3) }}" alt="{{ item.title }}" class="w100">
+                                    </div>
+                                {% endif %}
+                            {% elseif app.request.getLocale() == 'en' %}
+                                {% if item.path5 %}
+                                    <div class="image">
+                                        <img data-toggle="modal" data-target="#gift-modal-{{ item.id }}" src="{{ asset(item.webPath5) }}" alt="{{ item.title }}" class="w100">
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                            <div class="title">{{ item.title }}</div>
+                            <div class="price-line">{{ 'gift.price'|trans }} <span class="price">{{ (item.price ~ '&nbsp;' ~ ('currency'|trans))|raw }}</span></div>
+                            <button class="button2" data-toggle="modal" data-target="#gift-modal-{{ item.id }}">{{ 'gift.open'|trans }}</button>
+
+                            <div class="modal fade gift-modal" id="gift-modal-{{ item.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <div class="modal-title" id="myModalLabel">
+                                                {{ item.title }}
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% if app.request.getLocale() == 'uk' %}
+                                                {% if item.path2 %}
+                                                    <div class="image-block">
+                                                        <img src="{{ asset(item.webPath2) }}" alt="{{ item.title }}" class="w100">
+                                                    </div>
+                                                {% endif %}
+                                            {% elseif app.request.getLocale() == 'ru' %}
+                                                {% if item.path4 %}
+                                                    <div class="image-block">
+                                                        <img src="{{ asset(item.webPath4) }}" alt="{{ item.title }}" class="w100">
+                                                    </div>
+                                                {% endif %}
+                                            {% elseif app.request.getLocale() == 'en' %}
+                                                {% if item.path6 %}
+                                                    <div class="image-block">
+                                                        <img src="{{ asset(item.webPath6) }}" alt="{{ item.title }}" class="w100">
+                                                    </div>
+                                                {% endif %}
+                                            {% endif %}
+                                            <div class="page-text">
+                                                {{ item.text|raw }}
+                                            </div>
+                                            <div class="price-line2">{{ 'gift.price'|trans }} <span class="price">{{ (item.price ~ '&nbsp;'~ ('currency'|trans))|raw }}</span></div>
+
+                                            <div class="btn-line">
+                                                <button type="button" class="button2 order-item" data-toggle="modal" data-target="#order-form" data-type="gift" data-item="{{ item.id }}">{{ 'order.gift'|trans }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% if i%2 == 0 %}
+                        <div class="clearfix hidden-xs"></div>
+                    {% endif %}
+                    {% set i = i + 1 %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="white-block"></div>
+    {% include 'components/wait_for_you_block.html.twig' %}
+
+{% endblock %}
+
+{#{% block javascripts %}#}
+    {#{{ parent() }}#}
+
+{#{% endblock %}#}

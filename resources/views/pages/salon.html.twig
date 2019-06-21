@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% if pageData.text is defined and pageData.text is not empty %}
+        <div class="page-text container">
+            {{ pageData.text|raw }}
+        </div>
+    {% endif %}
+
+    {% include 'components/salon_list.html.twig' %}
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+
+{% endblock %}

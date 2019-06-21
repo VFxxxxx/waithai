@@ -1,0 +1,18 @@
+{% set suffix = '.default' %}
+{% if app.request.cookies.has('city') and app.request.cookies.get('city') is not empty %}
+{% set suffix = '' %}
+{% endif %}
+{% if cities %}
+<div class="modal fade" id="city-change" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document">
+<div class="modal-content"><div class="modal-header"><div class="modal-title" id="myModalLabel">{{ ('city' ~ suffix ~ '.answer')|trans }}</div></div><div class="modal-body"><ul class="city-list">
+{% for item in cities %}
+<li><span data-dismiss="modal" data-value="{{ item.id }}">
+{% if app.request.cookies.has('city') and app.request.cookies.get('city') is not empty %}
+{{ item.title }}
+{% else %}
+{{ item.titleDefault }}
+{% endif %}
+</span></li>
+{% endfor %}
+</ul></div></div></div></div>
+{% endif %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    {% include 'components/about_us_block.html.twig' %}
+
+    {% include 'components/advantages_block.html.twig' %}
+
+    <div class="content-block text-block">
+        <div class="container">
+            {#<div class="block-title">#}
+                {#{{ 'home.title'|trans|raw }}#}
+            {#</div>#}
+            <div class="block-text page-text">
+                {{ pageData.text|raw }}
+            </div>
+        </div>
+    </div>
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+{% endblock %}

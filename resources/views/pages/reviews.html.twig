@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% if salons.getSalons() %}
+        <div class="page-text container">
+            <div class="help-us-block">
+                <div class="help-title">{{ 'help.us.title'|trans }}</div>
+                <div class="help-text">{{ 'help.us.text'|trans }}</div>
+                <div class="row trip-row">
+                    {% for item in salons.getSalons() %}
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="{{ item.tripadvisor }}" target="_blank">{{ (item.fullAdress)|raw }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if pageData.text is defined and pageData.text is not empty %}
+        <div class="content-block reviews-block">
+            <div class="page-text container">
+                {{ pageData.text|raw }}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if objects %}
+        <div class="content-block reviews-block gray-block">
+            <div class="container">
+                {% for item in objects %}
+                    <div class="item row">
+                        <div class="col-sm-5 left-block">
+                            <div class="name">{{ item.name }}</div>
+                            <div class="date">{{ item.createdAt|date('d.m.Y') }}</div>
+                        </div>
+                        <div class="col-sm-7 right-block">{{ item.text }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="content-block review-block">
+        <div class="container">
+            {% if pagination.totalPages > 1 %}
+                {{ cms_pagination(pagination) }}
+            {% endif %}
+
+            <div class="block-title">{{ 'review.title'|trans }}</div>
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{ form_widget(form.name) }}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            {{ form_widget(form.text) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            {{ form_widget(form.send) }}
+                        </div>
+                    </div>
+                </div>
+            {{ form_end(form) }}
+
+            <div class="loader"><img src="{{ asset('images/loader.gif') }}"/> {{ 'review.loader'|trans }}</div>
+        </div>
+    </div>
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+{% endblock %}

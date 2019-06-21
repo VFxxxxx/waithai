@@ -21,6 +21,20 @@
                             </div>
                         @endif
 
+                        @if(in_array('name', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.name') }}</label>
+                                <input name="name" type="text" class="form-control" placeholder="{{ __('fields.name') }}" value="{{ @old('name') }}" required>
+                            </div>
+                        @endif
+
+                        @if(in_array('email', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.creator') }}</label>
+                                <input name="email" type="text" class="form-control" placeholder="{{ __('fields.email') }}" value="admin" required>
+                            </div>
+                        @endif
+
                         @if(in_array('slug', $fields))
                             <div class="form-group">
                                 <label>{{ __('fields.slug') }}</label>
@@ -74,6 +88,27 @@
                             </div>
                         @endif
 
+                        @if(in_array('certificate1', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.certificate1') }}</label>
+                                <input type="file" class="form-control" name="certificate1"/>
+                            </div>
+                        @endif
+
+                        @if(in_array('certificate2', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.certificate2') }}</label>
+                                <input type="file" class="form-control" name="certificate2"/>
+                            </div>
+                        @endif
+
+                        @if(in_array('certificate3', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.certificate3') }}</label>
+                                <input type="file" class="form-control" name="certificate3"/>
+                            </div>
+                        @endif
+
                         @if(in_array('image_preview', $fields))
                             <div class="form-group">
                                 <label>{{ __('fields.image_preview') }}</label>
@@ -92,6 +127,24 @@
                             <div class="form-group">
                                 <label>{{ __('fields.published_at') }}</label>
                                 <input name="published_at" type="datetime" class="form-control"  value="{{ Carbon\Carbon::now() }}">
+                            </div>
+                        @endif
+
+                        @if(in_array('visible', $fields))
+                            <div class="form-group">
+                                <label>{{ __('fields.visible') }}</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="visible" value="1" checked>
+                                        {{ __('fields.yes') }}
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="visible" value="0">
+                                        {{ __('fields.no') }}
+                                    </label>
+                                </div>
                             </div>
                         @endif
 

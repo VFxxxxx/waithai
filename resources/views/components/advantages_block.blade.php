@@ -1,0 +1,11 @@
+<div class="content-block advantages-block white-text"><div id="video-bg"></div><div class="img-bg"></div><div class="container"><div class="block-title">
+        Наши преимущества
+        </div><div class="block-text">
+            <p style="text-align: center;">На протяжении всего времени существования мы постоянно совершенствовались и развивались, опираясь на полученный опыт и отзывы наших любимых клиентов. Высокий профессионализм и качество услуг Wai Thai неоднократно подтверждено различными наградами и премиями. Вот лишь некоторые из них: «Лучший этнический массаж» 5-го ежегодного открытого Чемпионата по SPA-массажам 2012 г.; Выбор отрасли 2008 г.; «Лучший массаж» по версии журнала «Wellness».</p>
+            <p style="text-align: center;">Сегодня сеть Wai Thai это&nbsp;4 собственных салона&nbsp;массажа в Киеве и во Львове, а также обширная&nbsp;сеть партнеров. Нашими специалистами являются&nbsp;лучшие мастера&nbsp;тайского массажа из Таиланда, уровень которых подтверждают сертификаты и дипломы передовых школ Бангкока (монастырь Ват По) и Чанг Мая и многолетний опыт работы в SPA Европы и Азии.</p>
+        </div><div class="advantages-icons">
+            <div class="icon-item wow fadeInUp animated" data-wow-offset="100" style="visibility: visible; animation-name: fadeInUp;"><div class="icon icon-1"></div><div class="title">Пять салонов в<br>центре Киева и Львова</div></div>
+            <div class="icon-item wow fadeInUp animated" data-wow-offset="100" style="visibility: visible; animation-name: fadeInUp;"><div class="icon icon-2"></div><div class="title">Запись на массаж<br>любым удобным способом</div></div>
+            <div class="icon-item wow fadeInUp animated" data-wow-offset="100" style="visibility: visible; animation-name: fadeInUp;"><div class="icon icon-3"></div><div class="title">Гибкая программа<br>лояльности</div></div>
+            <div class="icon-item wow fadeInUp animated" data-wow-offset="100" style="visibility: visible; animation-name: fadeInUp;"><div class="icon icon-4"></div><div class="title">Индивидуальный подход<br>к каждому гостю</div></div>
+        </div></div></div>

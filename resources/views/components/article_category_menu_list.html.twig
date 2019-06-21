@@ -1,0 +1,13 @@
+{% if articleCategories and articleCategories|length > 1 %}
+<div class="article-category-list container"><div class="row"><div class="col-sm-3 col-md-2"><a class="item {{ articleAllActive ? ' active' }}" href="{{ path(articleAllRoute, {'slug': articleAllSlug}) }}">
+{{ 'article.all'|trans }}
+<span class="pointer"></span></a></div>
+{% for item in articleCategories %}
+{% if item.id != 3 %}
+<div class="col-sm-3 col-md-2"><a class="item {{ item.active ? ' active' }}" href="{{ path(articleCategoriesRoute, {'slug': item.slug}) }}">
+{{ item.title }}
+<span class="pointer"></span></a></div>
+{% endif %}
+{% endfor %}
+</div></div>
+{% endif %}

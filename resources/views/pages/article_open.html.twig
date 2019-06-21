@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="gray-block article-open">
+
+        {% if video == false %}
+            {% include 'components/article_category_menu_list.html.twig' %}
+        {% endif %}
+
+        <div class="container">
+            <div class="date">{{ pageData.createdAt|date('d.m.Y') }}</div>
+            <h1 class="page-title">{{ pageData.title }}</h1>
+            <div class="page-text">{{ pageData.text|raw }}</div>
+            {% if pageData.videoLink is not empty %}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" width="1140" height="641" src="{{ pageData.videoLink }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 left-nav">
+                    {% if navigation.previous != false %}
+                        <a href="{{ path(articleRoute, { 'slug': navigation.previous[0].slug}) }}"><i class="glyphicon glyphicon-chevron-left"></i>{{ ('nav.previous.' ~ pageData.category.slug)|trans }}</a>
+                    {% endif %}
+                </div>
+                <div class="col-sm-4 mid-nav">
+                    <a href="{{ path(articleCategoriesRoute, { 'slug': pageData.category.slug }) }}"><i class="glyphicon glyphicon-repeat"></i>{{ ('nav.back.' ~ pageData.category.slug)|trans }}</a>
+                </div>
+                <div class="col-sm-4 right-nav">
+                    {% if navigation.next != false %}
+                        <a href="{{ path(articleRoute, { 'slug': navigation.next[0].slug}) }}">{{ ('nav.next.' ~ pageData.category.slug)|trans }}<i class="glyphicon glyphicon-chevron-right"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+
+{% endblock %}

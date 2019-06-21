@@ -58,7 +58,7 @@
                     <ul class="nav navbar-nav">
                         <li style="width: 125px;position: relative;top: 10px;">
                             <div class="flags" style="height: 25px;display: flex;justify-content: space-around;">
-                                <a href="<?= route('setlocale', ['lang' => 'ru']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'ru' ? 'class="active"' : '' ?>>
+                                <a href="<?= route('setlocale', ['lang' => 'ru']) ?>"<?= (App\Http\Middleware\LocaleMiddleware::getLocale() != 'ua' && App\Http\Middleware\LocaleMiddleware::getLocale() != 'en')  ? 'class="active"' : '' ?>>
                                     <img style="width: 30px;" src="{{ asset('assets/flags/russia.svg') }}" alt="">
                                 </a>
                                 <a href="<?= route('setlocale', ['lang' => 'ua']) ?>"<?= App\Http\Middleware\LocaleMiddleware::getLocale() === 'ua' ? 'class="active"' : '' ?>>

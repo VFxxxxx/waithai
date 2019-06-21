@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="content-block text-block franchise-block">
+        <div class="container">
+            {#<div class="block-title">#}
+            {#{{ 'home.title'|trans|raw }}#}
+            {#</div>#}
+            <div class="page-text">
+                {{ pageData.text|raw }}
+            </div>
+
+            <div class="block-title-red">{{ 'contact.partners.title'|trans }}</div>
+            {% include 'components/contact_for_partners_block.html.twig' %}
+        </div>
+    </div>
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+
+{% endblock %}

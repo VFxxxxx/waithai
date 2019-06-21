@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% if pageData.text is defined and pageData.text is not empty %}
+        <div class="page-text container">
+            {{ pageData.text|raw }}
+        </div>
+    {% endif %}
+
+    <div class="partner-block gray-block">
+        <div class="container">
+            {% if objects %}
+                <div class="row stock-list">
+                    {% set i = 1 %}
+                    {% for item in objects %}
+                        <div class="col-sm-6 col-md-3">
+                            <div class="item">
+                                {% if item.path %}
+                                    <div class="image">
+                                        <img src="{{ asset(item.webPath) }}" alt="{{ item.title }}" class="w100">
+                                    </div>
+                                {% endif %}
+                                <div class="title">{{ item.title }}</div>
+                            </div>
+                        </div>
+                        {% if i%4 == 0 %}
+                            <div class="clearfix visible-md visible-lg"></div>
+                        {% endif %}
+                        {% if i%2 == 0 %}
+                            <div class="clearfix visible-sm"></div>
+                        {% endif %}
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="content-block">
+        <div class="block-title">{{ 'contact.partners.title'|trans }}</div>
+        {% include 'components/contact_for_partners_block.html.twig' %}
+    </div>
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,45 @@
+<div class="modal fade" id="order-form" tabindex="-1" role="dialog" aria-labelledby="myOrderLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="modal-title" id="myOrderLabel">
+{{ 'order.title'|trans }}
+</div></div><div class="modal-body"><form id="order-form-inner"><div class="row"><div class="col-sm-6 form-group"><label for="order-type">{{ 'order.type.label'|trans }}</label><select name="order-type" id="order-type" class="form-control" required><option value=""></option><option value="massage">{{ 'order.type.massage'|trans }}</option><option value="gift">{{ 'order.type.gift'|trans }}</option></select></div>
+{% if orderMassageList %}
+<div class="col-sm-6 form-group massage-field"><label for="order-type-massage">{{ 'order.service.label.massage'|trans }}</label><select name="order-type-massage" id="order-type-massage" class="form-control"><option value=""></option>
+{% for item in orderMassageList if item.massages|length > 0 %}
+<optgroup label="{{ item.title }}">
+{% for massage in item.massages %}
+<option value="{{ massage.id }}">{{ massage.title }}</option>
+{% endfor %}
+</optgroup>
+{% endfor %}
+</select></div>
+{% endif %}
+{% if orderGiftList %}
+<div class="col-sm-6 form-group gift-field"><label for="order-type-gift">{{ 'order.service.label.gift'|trans }}</label><select name="order-type-gift" id="order-type-gift" class="form-control"><option value=""></option>
+{% for item in orderGiftList %}
+<option value="{{ item.id }}" data-price="{{ item.price }}" >{{ item.title }}</option>
+{% endfor %}
+</select></div>
+{% endif %}
+</div><div class="row">
+{% if salons.getSalons() %}
+<div class="col-sm-6 form-group massage-salon-field"><label for="order-salon">{{ 'order.salon.label'|trans ~ ' (' ~ cityCurrent.title ~ ')' }}</label><select name="order-salon" id="order-salon" class="form-control"><option value=""></option>
+{% for item in salons.getSalons() if item.city.id == cityCurrent.id %}
+<option value="{{ item.id }}">{{ item.adres }}</option>
+{% endfor %}
+</select></div>
+{% endif %}
+<div class="col-sm-6 form-group massage-time-field"><label for="order-time">{{ 'order.time.label'|trans }}</label><select name="order-time" id="order-time" class="form-control"><option value=""></option><option value="lunch">{{ 'price.lunch'|trans }}</option><option value="evening">{{ 'price.evening'|trans }}</option></select></div></div>
+<div class="row massage-time-field">
+{% if orderMassageList %}
+<div class="col-sm-6 form-group"><label for="order-length">{{ 'order.length.label'|trans }}</label><select name="order-length" id="order-length" class="form-control"><option value=""></option></select><select name="order-length-proto" id="order-length-proto" class="form-control hidden"><option value=""></option>
+{% for category in orderMassageList if category.massages|length > 0 %}
+{% for massage in category.massages if massage.getPrices(cityCurrent)|length > 0 %}
+{% for price in massage.getPrices(cityCurrent) %}
+<option class="massage-{{ massage.id }}" value="{{ price.id }}" data-morning="{{ price.morning }}" data-lunch="{{ price.lunch }}" data-evening="{{ price.evening }}">{{ price.lenght ~ ' ' ~ 'price.min'|trans }}</option>
+{% endfor %}
+{% endfor %}
+{% endfor %}
+</select></div>
+{% endif %}
+</div><div class="modal-sep"></div><label >{{ 'order.personal.info'|trans }}</label><div class="person-line"><div class="form-group"><input type="text" placeholder="{{ 'order.name'|trans }}" name="name" id="order-name" required></div><div class="form-group"><input type="text" placeholder="{{ 'order.phone'|trans }}" name="phone" id="order-phone" required></div><div class="form-group"><input type="text" placeholder="{{ 'order.clmail'|trans }}" name="email" id="order-email"></div></div><div class="price-line"><span class="price-title">{{ 'order.price.text'|trans }}</span><span class="massage-field">{{ 'order.price.massage'|trans }}</span><span class="gift-field">{{ 'order.price.gift'|trans }}</span><span class="price-block"><span id="order-price" class="price">0</span>&nbsp;{{ 'currency'|trans }}</span></div><div class="subprice-line gift-field">
+{{ 'order.shipping'|trans }}
+</div><div class="btn-line"><button type="submit" id="order-btn" class="button2"  disabled>{{ 'order.pay'|trans }}</button><br class="visible-xs"><img src="{{ asset('images/visa.png') }}" alt="visa" class="pay-icon"><img src="{{ asset('images/mastercard.png') }}" alt="mastercard" class="pay-icon"><img src="{{ asset('images/privat.png') }}" alt="privat" class="pay-icon"></div><input type="hidden" value="{{ app.request.getLocale() }}" name="language"></form><div class="loader"><img src="{{ asset('images/loader.gif') }}"/></div></div></div></div></div>

@@ -1,0 +1,39 @@
+{% if massages and massages|length > 0 %}
+<div class="row massage-list">
+{% set i = 1 %}
+{% for item in massages %}
+<div class="col-md-4 col-sm-6 item-wrap"><a class="item" href="{{ path(massageRoute, {'slug': item.slug}) }}"><span class="not-hovered">
+{% if item.path %}
+<span class="image"><img data-toggle="modal" data-target="#gift-modal-{{ item.id }}" 
+                         srcset="{{ asset(item.webPath)|replace({'.jpg':'-320w.jpg'}) }} 320w,
+                                 {{ asset(item.webPath)|replace({'.jpg':'-480w.jpg'}) }} 480w,
+                                 {{ asset(item.webPath) }} 600w"
+                         src="{{ asset(item.webPath)|replace({'.jpg':'-320w.jpg'}) }}"
+                         alt="{{ item.title }}" class="w100"></span>
+{% endif %}
+<span class="title">{{ item.title }}</span></span><span class="hovered">
+{% if item.path %}
+<span class="image"><img data-toggle="modal" data-target="#gift-modal-{{ item.id }}"
+                         srcset="{{ asset(item.webPath)|replace({'.jpg':'-320w.jpg'}) }} 320w,
+                                 {{ asset(item.webPath)|replace({'.jpg':'-480w.jpg'}) }} 480w,
+                                 {{ asset(item.webPath) }} 600w"
+                         src="{{ asset(item.webPath)|replace({'.jpg':'-320w.jpg'}) }}"
+                         alt="{{ item.title }}" class="w100"></span>
+{% endif %}
+<span class="title">{{ item.title }}</span>
+{% include 'components/prices.html.twig' with {'prices': item.prices(cityCurrent)} %}
+<span class="massage-buttons">
+<button type="button" class="more_buttom visible-xs" onclick="location.href='{{ path(massageRoute, {'slug': item.slug}) }}'">{{ 'order.btn.more'|trans }}</button>
+<button type="button" class="button2 order-item" data-toggle="modal" data-target="#order-form" data-type="massage" data-item="{{ item.id }}">{{ 'order.and.pay2'|trans }}</button>
+</span>
+</span></a></div>
+{% if i%3 == 0 %}
+<div class="clearfix visible-md visible-lg"></div>
+{% endif %}
+{% if i%2 == 0 %}
+<div class="clearfix visible-sm"></div>
+{% endif %}
+{% set i = i + 1 %}
+{% endfor %}
+</div>
+{% endif %}

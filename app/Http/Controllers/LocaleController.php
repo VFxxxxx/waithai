@@ -23,7 +23,9 @@ class LocaleController extends Controller {
         }
 
         //Добавляем метку языка в URL (если выбран не язык по-умолчанию)
-        array_splice($segments, 1, 0, $lang);
+        if ($lang != LocaleMiddleware::$mainLanguage){
+            array_splice($segments, 1, 0, $lang);
+        }
 
         //формируем полный URL
         $url = implode("/", $segments);

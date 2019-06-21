@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+    {% include 'components/slider.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    {% include 'components/about_us_block.html.twig' %}
+
+    {% include 'components/advantages_block.html.twig' %}
+
+    <div class="content-block home-block">
+        <div class="container">
+            <div class="block-title">
+                {#{{ 'home.title'|trans|raw }}#}
+                {{ pageData.h1Prepared }}
+            </div>
+            <div class="block-text page-text">
+                {{ pageData.text|raw }}
+
+            </div>
+        </div>
+    </div>
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="/js/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // slider
+            if ($('#home_slider .slick-slider').length) {
+                $('#home_slider .slick-slider').slick({
+                    infinite: true,
+                    dots: true,
+                    //autoplay: true,
+                    autoplaySpeed: 4000,
+                    //fade: true,
+                    cssEase: 'linear',
+                    arrows: false,
+                    swipeToSlide: true
+                });
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="stock-block gray-block">
+        <div class="container">
+            <div class="page-date">{{ (pageData.dateStart|date('d.m.Y')) ~ ' - ' ~ (pageData.dateEnd|date('d.m.Y')) }}</div>
+            <h1 class="page-title">{{ pageData.title }}</h1>
+            <div class="page-text">{{ pageData.text|raw }}</div>
+        </div>
+    </div>
+
+    <div class="white-block"></div>
+
+    {% include 'components/wait_for_you_block.html.twig' %}
+
+{% endblock %}
