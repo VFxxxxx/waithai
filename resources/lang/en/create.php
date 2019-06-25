@@ -19,4 +19,13 @@ return [
     'article'  =>  [
         'title' =>  'Новая статья',
     ],
+    'reviews'  =>  [
+        'title' =>  'Новый отзыв',
+    ],
+    'masters'  =>  [
+        'title' =>  'Новый мастер',
+    ],
+    'partners'  =>  [
+        'title' =>  'Новый партнер',
+    ],
 ];

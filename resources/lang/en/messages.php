@@ -92,13 +92,13 @@ return [
     'home' => 'Главная',
     'home.title' => 'Тайский массаж – идеальный подарок',
 
-    'wait.for.you' => [
+    'wait_for_you' => [
         'title' => 'Лучшие тайские специалисты<br>ждут вас в Wai Thai!'
     ],
     'search' => 'Поиск',
     'trip.advisor.title' => 'Wai Thai в TripAdvisor',
     'city' => [
-        'default.answer' => 'Choose your city / Оберіть Ваше місто:',
+        'default_answer' => 'Choose your city / Оберіть Ваше місто:',
         'answer' => 'Выберите город',
     ],
     'contact' => [
@@ -209,7 +209,7 @@ return [
         'salon' => [
             'work' => 'Время работы:',
             'zoom' => 'Увеличить',
-            'tripadvisor:' => 'перейти в < br>tripadvisor',
+            'tripadvisor' => 'перейти в < br>tripadvisor',
         ],
         'time' => [
             'info' => 'Ознакомиться с информацией о временных зонах Вы можете < a href = "/ru/privilege/komfortnoie-vriemia-dlia-vas-1" > тут</a>',

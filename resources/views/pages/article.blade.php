@@ -6,6 +6,13 @@
             @include('components.article_category_menu_list')
         @endif
 
+        <div class="page-text container">
+            @if(isset($pageData))
+            {!! $pageData !!}
+            @endif
+        </div>
+
+
         <div class="container">
             <div class="articles-list">
 

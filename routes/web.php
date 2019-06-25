@@ -48,6 +48,11 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
             Route::resource('/masters', 'MasterController');
             Route::resource('/partners', 'PartnerController');
 
+            Route::get('/page_data/about', 'PageDataController@about')->name('page_data.about');
+            Route::patch('/page_data/about', 'PageDataController@aboutUpdate')->name('page_data.aboutUpdate');
+            Route::get('/page_data/news', 'PageDataController@news')->name('page_data.news');
+            Route::patch('/page_data/news', 'PageDataController@newsUpdate')->name('page_data.newsUpdate');
+
         });
     });
 

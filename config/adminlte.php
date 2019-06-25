@@ -109,19 +109,27 @@ return [
 
     'menu' => [
         [
-            'text'    => 'Наполнение',
-            'icon'    => 'folder',
+            'text' => 'Наполнение',
+            'icon' => 'folder',
             'submenu' => [
 //                ['text' => 'заказы', 'url'  => '/admin/orders',],
-                ['text' => 'категории массажа',         'url'  => 'massage_categories.index',],
-                ['text' => 'массажи',                   'url'  => 'massages.index',],
-                ['text' => 'подарочные сертификаты',    'url'  => 'gifts.index',],
-                ['text' => 'мастера',                   'url'  => 'masters.index',],
-                ['text' => 'видео',                     'url'  => 'videos.index',],
-                ['text' => 'новости',                   'url'  => 'news.index',],
-                ['text' => 'статьи',                    'url'  => 'articles.index',],
-                ['text' => 'отзывы',                    'url'  => 'reviews.index',],
-                ['text' => 'партнеры',                  'url'  => 'partners.index',],
+                ['text' => 'категории массажа', 'url' => 'massage_categories.index',],
+                ['text' => 'массажи', 'url' => 'massages.index',],
+                ['text' => 'подарочные сертификаты', 'url' => 'gifts.index',],
+                ['text' => 'мастера', 'url' => 'masters.index',],
+                ['text' => 'видео', 'url' => 'videos.index',],
+                ['text' => 'новости', 'url' => 'news.index',],
+                ['text' => 'статьи', 'url' => 'articles.index',],
+                ['text' => 'отзывы', 'url' => 'reviews.index',],
+                ['text' => 'партнеры', 'url' => 'partners.index',],
+                'menu' => [
+                    'text' => 'Страницы',
+                    'icon' => 'folder',
+                    'submenu' => [
+                        ['text' => 'О нас', 'url' => 'page_data.about',],
+                        ['text' => 'Новости', 'url' => 'page_data.news',],
+                    ]
+                ],
 
 //                ['text' => 'статьи', 'url'  => '/admin/articles',],
 //                ['text' => 'категории статей', 'url'  => '/admin/article_categories',],
@@ -152,7 +160,7 @@ return [
 //                ['text' => 'menu.prices', 'url'              => '/admin/prices',],
             ],
         ],
-        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -188,7 +196,7 @@ return [
 
     'plugins' => [
         'datatables' => true,
-        'select2'    => true,
-        'chartjs'    => true,
+        'select2' => true,
+        'chartjs' => true,
     ],
 ];

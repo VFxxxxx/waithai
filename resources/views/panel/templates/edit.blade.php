@@ -39,14 +39,14 @@
                         @if(in_array('slug', $fields))
                             <div class="form-group">
                                 <label>{{ __('fields.slug') }}</label>
-                                <input name="slug" type="text" class="form-control" placeholder="{{ __('fields.slug') }}" value="{{ $data->slug }}" required>
+                                <input name="slug" type="text" class="form-control" placeholder="{{ __('fields.slug') }}" value="@if(isset($data->slug)){{ $data->slug }}@endif" required>
                             </div>
                         @endif
 
                         @if(in_array('text', $fields))
                             <div class="form-group">
                                 <label>{{ __('fields.text') }}</label>
-                                <textarea name="text" rows="10" class="form-control" required>{!! $data->text !!}</textarea>
+                                <textarea name="text" rows="10" class="form-control" required>@if(isset($data->text)){!! $data->text !!}@endif</textarea>
                             </div>
                         @endif
 

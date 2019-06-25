@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Master;
 use App\Models\News;
+use App\Models\PageData;
 use App\Models\Partner;
 use App\Models\Review;
 use App\Models\Video;
@@ -92,6 +93,7 @@ class PageController extends Controller
             'page_title' => 'О нас',
             'b1' => 'Главная',
             'b2' => 'О нас',
+            'pageData' => PageData::where('slug', 'about')->first()->text,
         ];
         return view('pages.about')->with($with);
     }
@@ -105,6 +107,7 @@ class PageController extends Controller
             'b1' => 'Главная',
             'b2' => 'Статьи',
             'articles' => Article::published()->paginate(15),
+            'pageData' => PageData::where('slug', 'news')->first()->text,
         ];
         return view('pages.article')->with($with);
     }
@@ -118,6 +121,7 @@ class PageController extends Controller
             'b1' => 'Главная',
             'b2' => 'Новости',
             'articles' => News::published()->paginate(15),
+            'pageData' => PageData::where('slug', 'news')->first()->text,
         ];
         return view('pages.article')->with($with);
     }
@@ -132,6 +136,7 @@ class PageController extends Controller
             'b1' => 'Главная',
             'b2' => 'Новости',
             'articles' => Article::published()->union($news)->latest()->paginate(15),
+            'pageData' => PageData::where('slug', 'news')->first()->text,
         ];
         return view('pages.article')->with($with);
     }
