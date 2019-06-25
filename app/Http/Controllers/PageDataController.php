@@ -23,13 +23,17 @@ class PageDataController extends Controller
         return view('panel.templates.edit')->with($with);
     }
 
-    public function aboutUpdate(Request $pageData)
+    public function aboutUpdate(Request $request)
     {
         PageData::where('slug', 'about')->updateOrCreate(
             [
                 'slug' => 'about',
-                'text' => $pageData->text,
-                'locale' => $pageData->locale,
+                'locale' => $request->locale,
+            ],
+            [
+                'slug' => 'about',
+                'text' => $request->text,
+                'locale' => $request->locale,
             ]);
         return redirect()->route('page_data.about');
     }
@@ -52,7 +56,12 @@ class PageDataController extends Controller
 
     public function newsUpdate(Request $request)
     {
-        PageData::where('slug', 'news')->updateOrCreate([
+        PageData::where('slug', 'news')->updateOrCreate(
+        [
+            'slug' => 'news',
+            'locale' => $request->locale,
+        ],
+        [
             'slug' => 'news',
             'text' => $request->text,
             'locale' => $request->locale,
