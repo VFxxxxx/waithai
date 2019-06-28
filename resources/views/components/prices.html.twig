@@ -1,7 +1,16 @@
 {% if prices %}
-<table class="price-table"><tr><th>{{ 'price.time'|trans }}</th><th>{{ 'price.lunch'|trans }}</th><th>{{ 'price.evening'|trans }}</th></tr>
-{% for item in prices %}
-<tr><td>{{ item.lenght }} {{ 'price.min'|trans }}</td><td>{{ item.lunch > 0 ? item.lunch : '-' }} {{ 'currency'|trans }}</td><td>{{ item.evening > 0 ? item.evening : '-' }} {{ 'currency'|trans }}</td></tr>
-{% endfor %}
-</table>
+    <table class="price-table">
+        <tr>
+            <th>{{ 'price.time'|trans }}</th>
+            <th>{{ 'price.lunch'|trans }}</th>
+            <th>{{ 'price.evening'|trans }}</th>
+        </tr>
+        {% for item in prices %}
+            <tr>
+                <td>{{ item.lenght }} {{ 'price.min'|trans }}</td>
+                <td>{{ item.lunch > 0 ? item.lunch : '-' }} {{ 'currency'|trans }}</td>
+                <td>{{ item.evening > 0 ? item.evening : '-' }} {{ 'currency'|trans }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endif %}

@@ -15,7 +15,7 @@
         <nav id="main-menu" class="navbar-collapse collapse">
             <ul class="nav navbar-nav nav-menu">
                 <li class="first">
-                    <a href="/ru/massage-category/pajamas" class="item">Массажи
+                    <a href="{{ route('massage', 'pajamas') }}" class="item">Массажи
                         <span class="underline"></span>
                     </a>
                 </li>

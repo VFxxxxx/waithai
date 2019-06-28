@@ -11,6 +11,7 @@ class MassageCategory extends Model
         'title',
         'slug',
         'text',
+        'image',
         'meta_title',
         'meta_keywords',
         'meta_description',

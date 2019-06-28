@@ -14,6 +14,10 @@
                   Львов
                   </span>
                     </li>
+                    <li><span data-dismiss="modal" data-value="3">
+                  Лыбучен
+                  </span>
+                    </li>
                 </ul>
             </div>
         </div>

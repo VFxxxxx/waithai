@@ -128,6 +128,7 @@ return [
                     'submenu' => [
                         ['text' => 'О нас', 'url' => 'page_data.about',],
                         ['text' => 'Новости', 'url' => 'page_data.news',],
+                        ['text' => 'FAQ', 'url' => 'page_data.faq',],
                     ]
                 ],
 

@@ -34,6 +34,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('/franchise', 'PageController@franchise')->name('franchise');
     Route::get('/videos', 'PageController@videos')->name('videos');
     Route::get('/masters', 'PageController@masters')->name('masters');
+    Route::get('/massage-category/{slug}', 'PageController@massage')->name('massage');
 
 
     Route::group(['prefix' => 'admin'], function(){
@@ -52,7 +53,8 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
             Route::patch('/page_data/about', 'PageDataController@aboutUpdate')->name('page_data.aboutUpdate');
             Route::get('/page_data/news', 'PageDataController@news')->name('page_data.news');
             Route::patch('/page_data/news', 'PageDataController@newsUpdate')->name('page_data.newsUpdate');
-
+            Route::get('/page_data/faq', 'PageDataController@faq')->name('page_data.faq');
+            Route::patch('/page_data/faq', 'PageDataController@faqUpdate')->name('page_data.faqUpdate');
         });
     });
 

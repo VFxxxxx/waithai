@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\MassageCategory;
 use App\Models\Master;
 use App\Models\News;
 use App\Models\PageData;
@@ -81,6 +82,7 @@ class PageController extends Controller
             'page_title' => 'FAQ',
             'b1' => 'Главная',
             'b2' => 'FAQ',
+            'pageData' => (isset(PageData::where('slug', 'faq')->first()->text)) ? PageData::where('slug', 'faq')->first()->text : '',
         ];
         return view('pages.faq')->with($with);
     }
@@ -93,7 +95,7 @@ class PageController extends Controller
             'page_title' => 'О нас',
             'b1' => 'Главная',
             'b2' => 'О нас',
-            'pageData' => PageData::where('slug', 'about')->first()->text,
+            'pageData' => (isset(PageData::where('slug', 'about')->first()->text)) ? PageData::where('slug', 'about')->first()->text : '',
         ];
         return view('pages.about')->with($with);
     }
@@ -107,7 +109,7 @@ class PageController extends Controller
             'b1' => 'Главная',
             'b2' => 'Статьи',
             'articles' => Article::published()->paginate(15),
-            'pageData' => PageData::where('slug', 'news')->first()->text,
+            'pageData' => (isset(PageData::where('slug', 'news')->first()->text)) ? PageData::where('slug', 'news')->first()->text : '',
         ];
         return view('pages.article')->with($with);
     }
@@ -121,7 +123,7 @@ class PageController extends Controller
             'b1' => 'Главная',
             'b2' => 'Новости',
             'articles' => News::published()->paginate(15),
-            'pageData' => PageData::where('slug', 'news')->first()->text,
+            'pageData' => (isset(PageData::where('slug', 'news')->first()->text)) ? PageData::where('slug', 'news')->first()->text : '',
         ];
         return view('pages.article')->with($with);
     }
@@ -136,7 +138,7 @@ class PageController extends Controller
             'b1' => 'Главная',
             'b2' => 'Новости',
             'articles' => Article::published()->union($news)->latest()->paginate(15),
-            'pageData' => PageData::where('slug', 'news')->first()->text,
+            'pageData' => (isset(PageData::where('slug', 'news')->first()->text)) ? PageData::where('slug', 'news')->first()->text : '',
         ];
         return view('pages.article')->with($with);
     }
@@ -215,5 +217,18 @@ class PageController extends Controller
             'masters' => Master::published()->get(),
         ];
         return view('pages.team')->with($with);
+    }
+
+    public function massage($slug)
+    {
+        $with = [
+            'template' => 'team',
+            'header_class' => 'with-bg',
+            'page_title' => 'Массажи',
+            'b1' => 'Главная',
+            'b2' => 'Массажи',
+            'massageCategories' => MassageCategory::all(),
+        ];
+        return view('pages.massage')->with($with);
     }
 }

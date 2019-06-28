@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MassageCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MassageCategoryController extends Controller
 {
@@ -54,6 +55,7 @@ class MassageCategoryController extends Controller
             'title',
             'slug',
             'text',
+            'image',
             'meta_title',
             'meta_keywords',
             'meta_description'
@@ -75,7 +77,11 @@ class MassageCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        MassageCategory::create($request->all());
+        $massage = MassageCategory::create($request->all());
+        if ($request->file('image')) {
+            $signatureImage = $request->file('image')->store('images', 'public');
+            $massage->update(['image' => $signatureImage]);
+        }
         return redirect()->route('massage_categories.index');
     }
 
@@ -102,6 +108,7 @@ class MassageCategoryController extends Controller
             'title',
             'slug',
             'text',
+            'image',
             'meta_title',
             'meta_keywords',
             'meta_description'
@@ -138,6 +145,7 @@ class MassageCategoryController extends Controller
      */
     public function destroy(MassageCategory $massageCategory)
     {
+        Storage::disk('public')->delete($massageCategory->image);
         $massageCategory->delete();
         return redirect()->route('massage_categories.index');
     }

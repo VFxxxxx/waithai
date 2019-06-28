@@ -68,4 +68,35 @@ class PageDataController extends Controller
         ]);
         return redirect()->route('page_data.news');
     }
+
+    public function faq()
+    {
+        $fields = [
+            'text',
+        ];
+
+        $with = [
+            'title' => __('edit.faq.title'),
+            'method_update' => 'PageDataController@faqUpdate',
+            'fields' => $fields,
+            'data' => PageData::where('slug', 'faq')->first(),
+        ];
+
+        return view('panel.templates.edit')->with($with);
+    }
+
+    public function faqUpdate(Request $request)
+    {
+        PageData::where('slug', 'faq')->updateOrCreate(
+            [
+                'slug' => 'faq',
+                'locale' => $request->locale,
+            ],
+            [
+                'slug' => 'faq',
+                'text' => $request->text,
+                'locale' => $request->locale,
+            ]);
+        return redirect()->route('page_data.faq');
+    }
 }
